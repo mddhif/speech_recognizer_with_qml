@@ -57,9 +57,8 @@ class Controller(QObject):
 
     def playTrack(self, track_name):
 
-        file_path = "/home/med/" + track_name + ".mp3"
         pygame.init()
-        pygame.mixer.music.load(file_path)
+        pygame.mixer.music.load(track_name)
         pygame.mixer.music.play()
         while pygame.mixer.music.get_busy():
                 pygame.time.Clock().tick(10)
