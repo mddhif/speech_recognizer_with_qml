@@ -4,7 +4,14 @@ from pathlib import Path
 
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
+from PySide2.QtCore import QObject
 
+
+class Controller(QObject):
+
+
+    def __init__(self):
+           super().__init__()
 
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
