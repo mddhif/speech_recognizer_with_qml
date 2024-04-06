@@ -10,6 +10,7 @@ ApplicationWindow {
     title: qsTr("Speech Recognizer")
     color: "lightblue"
 
+
     Rectangle {
            id: rectangle
            anchors.centerIn: parent
@@ -21,20 +22,42 @@ ApplicationWindow {
                spacing: 10
 
 
+
                Button {
                      id: start
                      text: "Start..."
+                     implicitWidth: 100
+                     implicitHeight: 50
                      Layout.alignment: Qt.AlignHCenter
 
+                     background: Rectangle {
+                         color: "#007bff"
+                         radius: 5
+                     }
+
+                     font.bold: true
+                     //color: "white"
+
+                     onClicked: {
+                        command.text = "Enter command !"
+                        //Qt.binding(function() { return; })
+                        controller.command()
+                     }
+
                 }
 
-                Label {
-                    id: command
-                    text: "Command ...."
-                    Layout.alignment: Qt.AlignHCenter
 
 
-                }
+               Label {
+                   id: command
+                   text: "Command ..."
+                   Layout.alignment: Qt.AlignHCenter
+
+
+               }
+
+
+
 
                 Connections {
                         target: controller
